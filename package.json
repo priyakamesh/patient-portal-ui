@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/priyakamesh/patient-portal-ui/issues"
   },
-  "homepage": "https://github.com/priyakamesh/patient-portal-ui#readme"
+  "homepage": "https://github.com/priyakamesh/patient-portal-ui#readme",
+  "dependencies": {
+    "bower": "^1.8.0"
+  }
 }
