@@ -52,7 +52,7 @@ Screenshots of the Final Product
 <img src="/public/images/patientportal/profile.png" height="300px" width="600px">
 
 * Patient Portal ERD
-<img src="/public/images/patientportal/pp-erd.png" height="300px" width="600px">
+<img src="/public/images/patientportal/pp-erd.jpg" height="300px" width="600px">
 
 Specs By:
 [Nashville Software School](https://github.com/nashville-software-school),
