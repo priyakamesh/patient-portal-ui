@@ -39,20 +39,20 @@ Technologies Used:
 Screenshots of the Final Product
 
 * Home Page
-<img src="/images/patientportal/login.png" height="300px" width="600px">
+<img src="/public/images/patientportal/login.png" height="300px" width="600px">
 
 * Registration Page
-<img src="/images/patientportal/register.png" height="300px" width="600px">
+<img src="/public/images/patientportal/register.png" height="300px" width="600px">
 
 * Form Page
-<img src="/images/patientportal/form.png" height="300px" width="600px">
+<img src="/public/images/patientportal/form.png" height="300px" width="600px">
 
 
 * Profile Page
-<img src="/images/patientportal/profile.png" height="300px" width="600px">
+<img src="/public/images/patientportal/profile.png" height="300px" width="600px">
 
 * Patient Portal ERD
-<img src="/images/patientportal/pp-erd.png" height="300px" width="600px">
+<img src="/public/images/patientportal/pp-erd.png" height="300px" width="600px">
 
 Specs By:
 [Nashville Software School](https://github.com/nashville-software-school),
