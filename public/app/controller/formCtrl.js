@@ -6,7 +6,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
     $(function() {
       Materialize.updateTextFields();
   });
-    $http.get('http://localhost:3000/api/v1/doctors')
+    $http.get('https://patient-portal-api.herokuapp.com/api/v1/doctors')
     .then((data) =>{
       $scope.doctorname = data.data.doctors
     })
