@@ -1,6 +1,5 @@
 patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $http){
   $scope.currentUser = AuthFactory.getCurrentPatient()
-  console.log("$scope.currentUser.id",$scope.currentUser.id);
   if($scope.currentUser.id) {
     $scope.date = new Date()
     $(function() {
@@ -14,17 +13,13 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/doctor`)
     .then((data) =>{
       $scope.patientDoctor = data.data.doctor
-      console.log("$scope.patientDoctor",$scope.patientDoctor);
     })
     .catch((err) =>{
-      console.log("err",err);
     })
     $scope.keydown = () =>{
         $scope.doctorfullname = $('#full_name').val();
-        console.log("$scope.doctorfullname",$scope.doctorfullname);
         $http.get(`https://patient-portal-api.herokuapp.com/api/v1/doctors/check/${$scope.doctorfullname}`)
         .then((data) =>{
-          console.log("doctor fullname",data);
           $scope.doctorSpeciality = data.data.doctor[0].speciality
           $scope.doctorAddress = data.data.doctor[0].address
           $scope.doctorPhonenumber = data.data.doctor[0].phonenumber
@@ -33,74 +28,58 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           });
         })
         .catch((err) =>{
-          console.log("err",err);
         })
   }
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/insurance/${$scope.currentUser.id}`)
     .then((data) =>{
-      console.log("data",data);
       $scope.patientInsurance = data.data.insurance
     })
     .catch((err) =>{
-      console.log("err",err);
     })
 
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/release_med_info`)
     .then((data) =>{
       $scope.releasePerson = data.data
-      console.log("$scope.releasePerson",$scope.releasePerson);
     })
     .catch((err) =>{
-      console.log("err",err);
     })
 
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/foodallergy`)
     .then((data)=>{
-      console.log("allergy",data.data.food_allergy);
       $scope.foodallergys = data.data.food_allergy
     })
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/drugallergy`)
     .then((data)=>{
-      console.log("allergy",data.data.drug_allergy);
       $scope.drugallergys = data.data.drug_allergy
     })
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/allergy`)
     .then((allergy) =>{
-      console.log("allergy",allergy);
       $scope.allergys = allergy.data.allergy
     })
     .catch((err) =>{
-      console.log("err",err);
     })
 
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/socialhistory`)
     .then((data) =>{
       $scope.socialHistories = data.data.social_history
-      console.log("$socialHistories",$scope.socialHistories);
     })
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/familyhistory`)
     .then((data) =>{
       $scope.familyHistories = data.data.family_history
-      console.log("$familyHistories",$scope.familyHistories);
     })
 
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/history`)
     .then((history) =>{
-      console.log("history",history);
       $scope.histories = history.data.history
-      console.log("$scope.histories",$scope.histories);
     })
     .catch((err) =>{
-      console.log("err",err);
     })
 
     $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patients/${$scope.currentUser.id}/medication`)
     .then((data) =>{
-      console.log("data.data",data.data.medications);
       $scope.medications = data.data.medications
     })
     .catch((err) =>{
-      console.log("err",err);
     })
 
 
@@ -122,7 +101,6 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
         doctor_id: $scope.doctorid
       })
       .catch((data) =>{
-        console.log("data from catch",data);
         Materialize.toast(`${$scope.doctorfullname} is already in your profile`,2000)
       })
       })
@@ -143,10 +121,9 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           patient_id: $scope.currentUser.id
         })
         .catch((err) =>{
-          console.log("err",err);
         })
       }
-      if($scope.releasePerson.fullname !== null) {
+      if($scope.releasePerson.fullname !== undefined) {
         $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/release_med_info/new`,{
             fullname: $scope.releasePerson.fullname,
             relation: $scope.releasePerson.relation,
@@ -156,9 +133,6 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           .catch((err) =>{
             Materialize.toast(`${$scope.releasePerson.fullname} is already in your account`,2000)
           })
-      }
-      else{
-        console.log("no releasePerson found");
       }
     $scope.patientAllergys = [];
       $('input[name="foodallergys"]:checked').map(function() {
@@ -172,7 +146,6 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           allergy_id : $scope.patientAllergys
         })
         .catch((err) =>{
-          console.log("err",err);
         })
       }
        $scope.patientHistory = [];
@@ -189,13 +162,12 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           history_id : $scope.patientHistory
         })
         .catch((err) =>{
-          console.log("err",err);
         })
       }
      $scope.medications.route = $("#route").val()
       if ($scope.medications.medication_type === 'Current') {
         $scope.medications.medication_type_id = 1
-      } else {
+      } else if($scope.medications.medication_type === 'Discontinued'){
         $scope.medications.medication_type_id = 2
       }
 
@@ -209,10 +181,9 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           patient_id: $scope.currentUser.id
         })
         .catch((err) =>{
-          console.log("err",err);
         })
       }
-      else {
+      else if($scope.medications.medication_type_id === 2) {
         $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patients/${$scope.currentUser.id}/dismedication/new`,{
             brandname: $scope.medications.brandname,
             drugname: $scope.medications.drugname,
@@ -222,7 +193,6 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
             patient_id: $scope.currentUser.id
           })
           .catch((err) =>{
-            console.log("err",err);
           })
       }
     $location.url('/profile')

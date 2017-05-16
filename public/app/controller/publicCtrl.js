@@ -5,7 +5,6 @@ patient_portal.controller('PublicCtrl', function($scope, AuthFactory,$location, 
      if (($scope.email === undefined)&&($scope.password === undefined)){
       Materialize.toast("Please enter the email and password",2000)
     }
-    console.log("$scope.email",$scope.email);
    AuthFactory.setter($scope.email,$scope.password)
     .then((data)=>{
       if(!data.message){

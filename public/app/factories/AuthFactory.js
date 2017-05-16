@@ -22,7 +22,6 @@ patient_portal.factory("AuthFactory", function($http) {
     })
     .then((data) =>{
       currentPatient = data.data.patient
-      console.log("currentPatient",currentPatient);
       return data.data.patient.id
     })
     .catch ((data) =>{
@@ -31,7 +30,6 @@ patient_portal.factory("AuthFactory", function($http) {
 
   },
   getCurrentPatient: () =>{
-    console.log("currentPatient from getCurrentPatient",currentPatient);
     return currentPatient
   }
 }
