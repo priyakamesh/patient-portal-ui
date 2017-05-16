@@ -11,7 +11,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       $scope.doctorname = data.data.doctors
     })
 
-    $http.get(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/doctor`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/doctor`)
     .then((data) =>{
       $scope.patientDoctor = data.data.doctor
       console.log("$scope.patientDoctor",$scope.patientDoctor);
@@ -22,7 +22,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
     $scope.keydown = () =>{
         $scope.doctorfullname = $('#full_name').val();
         console.log("$scope.doctorfullname",$scope.doctorfullname);
-        $http.get(`http://localhost:3000/api/v1/doctors/check/${$scope.doctorfullname}`)
+        $http.get(`https://patient-portal-api.herokuapp.com/api/v1/doctors/check/${$scope.doctorfullname}`)
         .then((data) =>{
           console.log("doctor fullname",data);
           $scope.doctorSpeciality = data.data.doctor[0].speciality
@@ -36,7 +36,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           console.log("err",err);
         })
   }
-    $http.get(`http://localhost:3000/api/v1/insurance/${$scope.currentUser.id}`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/insurance/${$scope.currentUser.id}`)
     .then((data) =>{
       console.log("data",data);
       $scope.patientInsurance = data.data.insurance
@@ -45,7 +45,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       console.log("err",err);
     })
 
-    $http.get(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/release_med_info`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/release_med_info`)
     .then((data) =>{
       $scope.releasePerson = data.data
       console.log("$scope.releasePerson",$scope.releasePerson);
@@ -54,17 +54,17 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       console.log("err",err);
     })
 
-    $http.get(`http://localhost:3000/api/v1/foodallergy`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/foodallergy`)
     .then((data)=>{
       console.log("allergy",data.data.food_allergy);
       $scope.foodallergys = data.data.food_allergy
     })
-    $http.get(`http://localhost:3000/api/v1/drugallergy`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/drugallergy`)
     .then((data)=>{
       console.log("allergy",data.data.drug_allergy);
       $scope.drugallergys = data.data.drug_allergy
     })
-    $http.get(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/allergy`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/allergy`)
     .then((allergy) =>{
       console.log("allergy",allergy);
       $scope.allergys = allergy.data.allergy
@@ -73,18 +73,18 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       console.log("err",err);
     })
 
-    $http.get(`http://localhost:3000/api/v1/socialhistory`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/socialhistory`)
     .then((data) =>{
       $scope.socialHistories = data.data.social_history
       console.log("$socialHistories",$scope.socialHistories);
     })
-    $http.get(`http://localhost:3000/api/v1/familyhistory`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/familyhistory`)
     .then((data) =>{
       $scope.familyHistories = data.data.family_history
       console.log("$familyHistories",$scope.familyHistories);
     })
 
-    $http.get(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/history`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/history`)
     .then((history) =>{
       console.log("history",history);
       $scope.histories = history.data.history
@@ -94,7 +94,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       console.log("err",err);
     })
 
-    $http.get(`http://localhost:3000/api/v1/patients/${$scope.currentUser.id}/medication`)
+    $http.get(`https://patient-portal-api.herokuapp.com/api/v1/patients/${$scope.currentUser.id}/medication`)
     .then((data) =>{
       console.log("data.data",data.data.medications);
       $scope.medications = data.data.medications
@@ -105,7 +105,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
 
 
    $scope.finish = () =>{
-    $http.patch(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}`,{
+    $http.patch(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}`,{
         firstname: $scope.currentUser.firstname,
         lastname: $scope.currentUser.lastname,
         dob: $scope.currentUser.dob,
@@ -114,10 +114,10 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
         phonenumber: $scope.currentUser.phonenumber
       })
       $scope.doctorfullname = $('#full_name').val();
-      $http.get(`http://localhost:3000/api/v1/doctors/check/${$scope.doctorfullname}`)
+      $http.get(`https://patient-portal-api.herokuapp.com/api/v1/doctors/check/${$scope.doctorfullname}`)
       .then((data) =>{
         $scope.doctorid = data.data.doctor[0].id
-      $http.post(`http://localhost:3000/api/v1/addPatientDoctor/${$scope.currentUser.id}/${$scope.doctorid}`,{
+      $http.post(`https://patient-portal-api.herokuapp.com/api/v1/addPatientDoctor/${$scope.currentUser.id}/${$scope.doctorid}`,{
         patient_id: $scope.currentUser.id,
         doctor_id: $scope.doctorid
       })
@@ -135,7 +135,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
         $scope.patientInsurance.insurance_type_id = 2
       }
       if($scope.patientInsurance.insuranceprovider !== null) {
-        $http.post(`http://localhost:3000/api/v1/insurance/${$scope.currentUser.id}`,{
+        $http.post(`https://patient-portal-api.herokuapp.com/api/v1/insurance/${$scope.currentUser.id}`,{
           insuranceprovider: $scope.patientInsurance.insuranceprovider,
           groupid: $scope.patientInsurance.groupid,
           subscriberid: $scope.patientInsurance.subscriberid,
@@ -147,7 +147,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
         })
       }
       if($scope.releasePerson.fullname !== null) {
-        $http.post(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/release_med_info/new`,{
+        $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/release_med_info/new`,{
             fullname: $scope.releasePerson.fullname,
             relation: $scope.releasePerson.relation,
             phonenumber: $scope.releasePerson.phone,
@@ -168,7 +168,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
                   $scope.patientAllergys.push($(this).val());
       });
       if($scope.patientAllergys.length >0){
-        $http.post(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/allergy`,{
+        $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/allergy`,{
           allergy_id : $scope.patientAllergys
         })
         .catch((err) =>{
@@ -185,7 +185,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       });
 
       if($scope.patientHistory.length > 0){
-        $http.post(`http://localhost:3000/api/v1/patient/${$scope.currentUser.id}/history`,{
+        $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patient/${$scope.currentUser.id}/history`,{
           history_id : $scope.patientHistory
         })
         .catch((err) =>{
@@ -200,7 +200,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       }
 
       if($scope.medications.medication_type_id === 1 ) {
-        $http.post(`http://localhost:3000/api/v1/patients/${$scope.currentUser.id}/currentmedication/new`,{
+        $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patients/${$scope.currentUser.id}/currentmedication/new`,{
           brandname: $scope.medications.brandname,
           drugname: $scope.medications.drugname,
           dosage: $scope.medications.dosage,
@@ -213,7 +213,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
         })
       }
       else {
-        $http.post(`http://localhost:3000/api/v1/patients/${$scope.currentUser.id}/dismedication/new`,{
+        $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patients/${$scope.currentUser.id}/dismedication/new`,{
             brandname: $scope.medications.brandname,
             drugname: $scope.medications.drugname,
             dosage: $scope.medications.dosage,

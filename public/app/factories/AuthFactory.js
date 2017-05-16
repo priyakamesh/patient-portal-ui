@@ -2,7 +2,7 @@ patient_portal.factory("AuthFactory", function($http) {
   var currentPatient = {};
   return {
     getter: (email,password,confirmpassword) => {
-      return $http.post(`http://localhost:3000/api/v1/patient/new`, {
+      return $http.post(`https://patient-portal-api.herokuapp.com/api/v1/patient/new`, {
         email : email,
         password: password,
         confirmation: confirmpassword
