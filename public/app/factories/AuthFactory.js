@@ -16,7 +16,7 @@ patient_portal.factory("AuthFactory", function($http) {
       })
     }
     ,setter: (email,password) =>{
-    return $http.post(`http://localhost:3000/api/v1/patient/check`,{
+    return $http.post(`https://localhost:3000/api/v1/patient/check`,{
       email: email,
       password: password
     })
