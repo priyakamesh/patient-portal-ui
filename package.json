@@ -1,0 +1,23 @@
+{
+  "name": "patient-portal-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyakamesh/patient-portal-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyakamesh/patient-portal-ui/issues"
+  },
+  "homepage": "https://github.com/priyakamesh/patient-portal-ui#readme",
+  "dependencies": {
+    "bower": "^1.8.0"
+  }
+}
