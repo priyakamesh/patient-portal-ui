@@ -21,17 +21,25 @@
 
     Welcome to the Patient Portal Managing your healthcare is an important step.. With this website, you will be able to manage your healthcare information by giving you the ability to: 1. Provide up-to-date personal and medical information. 2. Obtain, review, and print clinic lab results and medical information for your records to ,provide you with your healthcare information. 3. Search educational material to help you improve and manage your health. If you wish to speak to someone at our practice regarding an urgent care situation please call ***-***-**** to schedule an appointment or to reach the doctor that is on call.</p>
   </div>
-  <div style="width:150px; margin-top:65px;" class="side-nav fixed">
-  <button ng-click="activePortalButton('Dashboard')" class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Personal Information</button>
-  <button ng-click="activePortalButton('Doctor')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Doctor</button>
-  <button ng-click="activePortalButton('Insurance')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Insurance</button>
-  <button ng-click="activePortalButton('Medication')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Medication</button>
-  <button ng-click="activePortalButton('Release')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Release of Medical Records</button>
-  <button ng-click="activePortalButton('History')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">History</button>
-  <button ng-click="activePortalButton('Allergy')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Allergy</button>
-  <button ng-click="activePortalButton('VisitSummary')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Visit Summary</button>
+  <ul style="width:250px; margin-top:65px;" class="side-nav fixed" id="slide-out" >
+    <li><a href="#/profile" ng-click="activePortalButton('Dashboard')" class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Personal Information</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('Doctor')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Doctor</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('Insurance')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Insurance</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('Medication')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Medication</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('Release')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Release of Medical Records</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('History')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">History</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('Allergy')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Allergy</a></li>
+
+    <li><a href="#/profile" ng-click="activePortalButton('VisitSummary')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Visit Summary</a></li>
+
   <!-- <button ng-click ='goTo()' class="sideButton" > Update Information</button> -->
-</div>
+</ul>
 <div id = "Dashboard" ng-if ="active_portal == 'Dashboard'" >
   <div class="card block" >
    <form class="col s12">
@@ -104,7 +112,7 @@
 </div>
 <div id = "Doctor" ng-if ="active_portal == 'Doctor'" >
   <div class="card block" >
-    <div class= "col s12 m6 center-align medication" >
+    <div class= "col s12 m6 medication" >
       <h5 class="card-title">Doctor Information</h5>
       <div ng-repeat = "doctor in patientDoctor">
       <div id="{{doctor.id}}">
