@@ -68,6 +68,10 @@ visibility:visible;
     height: 100%;
     box-shadow: 0px 3px 1px #0d47a1;
 }
+.fixed1{
+    width: 200px;
+    height: 100%;
+}
 .flex-item{
     flex-grow: 1;
     width: 400px;
