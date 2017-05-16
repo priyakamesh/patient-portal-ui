@@ -6,6 +6,7 @@ Link to patient-portal-ui :- https://patient-portal-ui-281e5.firebaseapp.com/#/
 
 Through this web app users can register/login to add their personal information, primary physician details, allergies, family and social history, current and discontinued medication,insurance details and more importantly, you can assign the medical information release person.
 This ui app is hitting the postgreSQL database. The back-end app is a nodeJS project which is deployed in heroku. The link for heroku app :-https://patient-portal-api.herokuapp.com/api/v1/
+Git-hub Link for back-end code:- https://github.com/priyakamesh/patient-portal
 
 I used swagger to do API-documentation.
 
