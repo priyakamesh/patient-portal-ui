@@ -1,6 +1,5 @@
 <div class="navbar-fixed ">
     <nav>
-    <a data-activates="slide-out" class="button-collapse" href="#/profile"><i class="material-icons">menu</i></a>
       <div class="nav-wrapper navColor">
 
       <ul class="right  hide-on-med-and-down">
@@ -8,12 +7,29 @@
         <li> <a href="#/logout">Logout</a></li>
       </ul>
 
+      <a data-activates="slide-out" class="button-collapse" href="#!"><i class="material-icons">menu</i></a>
+
       </div>
     </nav>
-    <ul class="side-nav" id="slide-out">
+  </div>
+  <ul class="side-nav" id="slide-out">
+         <li><a href="#/profile" ng-click="activePortalButton('Dashboard')" class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Personal Information</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('Doctor')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Doctor</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('Insurance')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Insurance</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('Medication')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Medication</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('Release')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Release of Medical Records</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('History')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">History</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('Allergy')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Allergy</a></li>
+
+        <li><a href="#/profile" ng-click="activePortalButton('VisitSummary')"  class="sideButton tooltipped" data-position="right" data-delay="50" data-tooltip="Click to Expand">Visit Summary</a></li>
         <li> <a href="#/logout">Logout</a></li>
       </ul>
-  </div>
 
   <div class="welcome">
     <h5 style = "text-transform: uppercase;">Hi {{currentUser.firstname}} {{currentUser.lastname}},</h5>
