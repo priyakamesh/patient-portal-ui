@@ -195,7 +195,8 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
           .catch((err) =>{
           })
       }
-    $location.url('/profile')
+    Materialize.toast('Updated information will be available in your profile page', 2000)
+    $location.url('/form')
    }
    }
    else {
