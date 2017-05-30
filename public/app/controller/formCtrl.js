@@ -112,7 +112,7 @@ patient_portal.controller('FormCtrl', function($scope, AuthFactory,$location, $h
       else {
         $scope.patientInsurance.insurance_type_id = 2
       }
-      if($scope.patientInsurance.insuranceprovider !== null) {
+      if($scope.patientInsurance.insuranceprovider !== undefined) {
         $http.post(`https://patient-portal-api.herokuapp.com/api/v1/insurance/${$scope.currentUser.id}`,{
           insuranceprovider: $scope.patientInsurance.insuranceprovider,
           groupid: $scope.patientInsurance.groupid,
